@@ -1,0 +1,184 @@
+@use '../abstracts/mixins' as mixins;
+@use '../abstracts/variables' as vars;
+
+.movies {
+    .btn {
+        @include mixins.button();
+    }
+
+    &-table {
+        margin-top: 40px;
+        width: 100%;
+        border: 1px solid vars.$black;
+        border-collapse: collapse;
+
+        tr, th, td {
+            border: 1px solid vars.$black;
+            padding: 10px;
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background-color: vars.$grey;
+        }
+
+        
+        &-actions {
+
+            .btn-view {
+                    @include mixins.flex(row, center, center);
+                    @include mixins.button(vars.$blue, vars.$black, vars.$white);
+            }
+            .btn-edit {
+                    margin-top: 5px;
+                    @include mixins.flex(row, center, center);
+                    @include mixins.button(vars.$green, vars.$black, vars.$white);
+            }
+            .btn-destroy {
+                    margin-top: 5px;
+                    @include mixins.flex(row, center, center, 100%);
+                    @include mixins.button(vars.$redDark, vars.$black, vars.$white);
+            }
+        }
+    }
+
+    .not-found {
+        @include mixins.flex(row, center, center, 100%);
+        background: rgba(vars.$orange, 0.4);
+        padding: 30px;
+        margin-top: 40px;
+        border-radius: 20px;
+        border: 1px solid vars.$black;
+
+        span {
+            font-size: 20px;
+            font-weight: 700;
+        }
+    }
+}
+
+.movies-create, .movies-edit {
+    .btn-secondary {
+        @include mixins.button(vars.$greyDark, vars.$black, vars.$white);
+    }
+
+    &-form {
+        @include mixins.flex(column, flex-start, flex-start, 100%);
+        margin-top: 40px;
+
+        .errors {
+            background: rgba(vars.$redDark, 0.4);
+            width: 100%;
+            border-radius: 20px;
+
+            ul {
+                line-height: 1.6;
+            }
+        }
+
+        #create_film {
+            @include mixins.flex(column, flex-start, flex-start, 100%);
+            width: 100%;
+            padding: 0 40px;
+
+            .form-row {
+                @include mixins.flex(row, flex-start, flex-start, 100%, 40px);
+
+                .input-group {
+                    @include mixins.flex(column, flex-start, flex-start, 100%);
+
+                    label {
+                        font-weight: 600;
+                        color: vars.$redDark;
+                    }
+
+                    input, textarea {
+                        width: 100%;
+                        border-radius: 10px;
+                        font-size: 14px;
+                        padding: 10px;
+                    }
+                }
+            }
+
+            .cast-section {
+                .cast-rows {
+                    @include mixins.flex(column, flex-start, flex-start, 100%, 10px);
+                }
+
+                .cast-row {
+                    @include mixins.flex(row, center, flex-start, 100%, 10px);
+
+                    input {
+                        flex: 1;
+                    }
+                }
+
+                .btn-add-cast {
+                    margin-top: 10px;
+                    cursor: pointer;
+                    @include mixins.button(vars.$orange, vars.$black, vars.$black);
+                }
+
+                .btn-remove-cast {
+                    flex-shrink: 0;
+                    cursor: pointer;
+                    line-height: 1;
+                    @include mixins.button(vars.$redDark, vars.$black, vars.$white);
+                }
+            }
+
+            .btn-submit {
+                cursor: pointer;
+                margin-top: 10px;
+                @include mixins.button(vars.$blue, vars.$black, vars.$white);
+            }
+        }
+    }
+}
+
+.movies-single {
+    .btn-secondary {
+        @include mixins.button(vars.$greyDark, vars.$black, vars.$white);
+    }
+
+    &-details {
+        margin-top: 40px;
+        @include mixins.flex(column, flex-start, flex-start, 100%);
+
+        &-item {
+            border-bottom: 1px solid vars.$greyDark;
+            @include mixins.flex(row, flex-start, flex-start, 100%, 10px);
+            
+            .label {
+                font-weight: 700;
+                color: vars.$redDark;
+            }
+            .value {
+                font-weight: 400;
+                color: vars.$black;
+            }
+        }
+
+        &-text {
+            border-bottom: 1px solid vars.$greyDark;
+            @include mixins.flex(column, flex-start, flex-start, 100%, 10px);
+            
+            .label {
+                font-weight: 700;
+                color: vars.$redDark;
+            }
+            .value {
+                font-weight: 400;
+                color: vars.$black;
+            }
+            .empty-cast {
+                padding: 20px;
+                width: 100%;
+                font-weight: 700;
+                background: rgba(vars.$blue, 0.5);
+            }
+        }
+    }
+
+}

@@ -1,0 +1,25 @@
+@use 'variables' as vars;
+
+@mixin button($background: vars.$orange, $border-color: vars.$black, $color: vars.$black) {
+    background: $background;
+    padding: 10px 15px;
+    border: 1px solid $border-color;
+    border-radius: 12px;
+    color: $color;
+    text-decoration: none;
+    transition: color 1s;
+
+    &:hover {
+        background-color: rgba($background, $alpha: 0.5);
+        font-weight: 700;
+    }
+}
+
+@mixin flex($direction: row, $align: flex-start, $justify: flex-start, $width: auto, $gap: 5px) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: $align;
+    justify-content: $justify;
+    width: $width;
+    gap: $gap;
+}

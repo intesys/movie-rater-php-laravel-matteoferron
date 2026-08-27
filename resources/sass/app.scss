@@ -1,0 +1,12 @@
+@use 'components/alerts';
+@use 'sections/movies';
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}

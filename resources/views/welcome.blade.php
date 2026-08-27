@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+@section('content')
+    <h1>{{ config('app.name', 'Laravel') }}</h1>
+    <p>Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})</p>
 
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body class="antialiased">
-        <main>
-            <h1>{{ config('app.name', 'Laravel') }}</h1>
-            <p>Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})</p>
-        </main>
-    </body>
-</html>
+    <a class="btn" href="{{ route('movies.index') }}" title="Visualizza i film">Films</a>
+@endsection
